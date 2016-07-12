@@ -1,0 +1,51 @@
+//
+//  TaskViewController.m
+//  ZhiZhu
+//
+//  Created by wt-vrs on 15/11/10.
+//  Copyright © 2015年 wt-vrs. All rights reserved.
+//
+
+#import "TaskViewController.h"
+#import "AppDelegate.h"
+#import "ToolMothod.h"
+@interface TaskViewController ()
+
+@end
+
+@implementation TaskViewController
+{
+    AppDelegate *delegate;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    delegate.mainNavigationController.navigationBarHidden = YES;
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor blueColor];
+    
+    self.title = @"任务";
+    
+    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithTitle:@"侧栏" style:UIBarButtonItemStylePlain target:self action:@selector(skidSideways:)];
+    self.navigationItem.leftBarButtonItem = leftBtn;
+}
+- (void)skidSideways:(UIBarButtonItem *)sender{
+    
+    [ToolMothod clickLeftSlider];
+    
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
